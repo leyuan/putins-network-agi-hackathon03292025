@@ -58,7 +58,7 @@ def interact_with_model(model_id=None, api_key=None):
             print(f"Error: {e}")
 
 if __name__ == "__main__":
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = "your_api_key_here"
     model_id, api_key = fine_tune(api_key=api_key)
     interact_with_model(model_id=model_id, api_key=api_key)
     print()
