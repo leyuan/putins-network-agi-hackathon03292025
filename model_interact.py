@@ -58,7 +58,7 @@ def interact_with_model(model_id=None, api_key=None):
             print(f"Error: {e}")
 
 if __name__ == "__main__":
-    api_key = "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"
+    api_key = os.getenv("OPENAI_API_KEY")
     model_id, api_key = fine_tune(api_key=api_key)
     interact_with_model(model_id=model_id, api_key=api_key)
     print()
