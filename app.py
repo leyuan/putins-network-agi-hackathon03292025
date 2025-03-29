@@ -290,7 +290,7 @@ with tab1:
             st.markdown(message["content"])
 
     # Chat input
-    if prompt := st.chat_input("What would you like to know about Putin's network?"):
+    if prompt := st.chat_input("Ask: What is the relationship between Vladimir Putin and the United States?"):
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
