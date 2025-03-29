@@ -49,6 +49,7 @@ driver = init_neo4j()
 
 # Initialize OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+gpt_model = "ft:gpt-4o-2024-08-06:personal::BGYRkCJ2"  # or "gpt-4o-mini"
 
 
 def get_embedding(text):
@@ -91,7 +92,7 @@ def analyze_relationship(text, person1, person2, client):
 
     try:
         completion = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=gpt_model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=50
@@ -320,7 +321,7 @@ with tab1:
         # Get AI response
         with st.spinner("Analyzing..."):
             completion = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model=gpt_model,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": prompt + context}
